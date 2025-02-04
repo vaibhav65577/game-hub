@@ -36,8 +36,10 @@ const SearchBar = ({ onSearch }: SearchBarProps) => {
               <MdOutlineCancel
                 cursor="pointer"
                 onClick={() => {
-                  onSearch('');
-                  if (searchBarRef.current) searchBarRef.current.value = '';
+                  if (searchBarRef?.current?.value) {
+                    onSearch('');
+                    if (searchBarRef.current) searchBarRef.current.value = '';
+                  }
                 }}
               />
             }
